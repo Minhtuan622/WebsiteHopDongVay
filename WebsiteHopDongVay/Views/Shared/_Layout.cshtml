@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - GallifreyPlanet</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+          integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="main-content d-flex">
+        <div class="sidebar rounded" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-4 d-flex justify-content-between">
+                <h1 class="fs-4">
+                    <span class="bg-white text-dark rounded shadow me-2 px-2">MTN</span>
+                    <span class="text-white">Website cho vay</span>
+                </h1>
+                <button class="btn btn-close d-md-none d-block px-1 py-0 text-white"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+            <ul class="list-unstyled px-2">
+                <li class="">
+                    @Html.ActionLink("Hợp đồng vay", "Index", "HopDongVay", null, new {@class = "text-decoration-none px-3 py-2 d-block" })
+                </li>
+                <li class="">
+                    @Html.ActionLink("Khế ước ghi nợ", "Index", "KheUocGhiNo", null, new { @class = "text-decoration-none px-3 py-2 d-block" })
+                </li>
+                <li class="">
+                    @Html.ActionLink("Giấy nhận nợ", "Index", "GiayNhanNo", null, new { @class = "text-decoration-none px-3 py-2 d-block" })
+                </li>
+                <li class="">
+                    @Html.ActionLink("Giấy báo nhận lãi vay", "Index", "GiayBaoNhanLaiVay", null, new { @class = "text-decoration-none px-3 py-2 d-block" })
+                </li>
+                <li class="">
+                    @Html.ActionLink("Giấy báo nhận tiền gốc", "Index", "GiayBaoNhanTienGoc", null, new { @class = "text-decoration-none px-3 py-2 d-block" })
+                </li>
+            </ul>
+            @*<hr class="h-color mx-2">
+            <ul class="list-unstyled px-2">
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-gear"></i> Giới thiệu</a></li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a></li>
+            </ul>*@
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-md navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                        <button class="btn px1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+                        <a class="navbar-brand fs-4" href="#"><span class="bg-dark rounded px-2 py-0 text-white">MTN</span></a>
+                    </div>
+                    <button class="navbar-toggler p-1 border-0"
+                            type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation">
+                        <i class="fa-solid fa-list"></i>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                @Html.ActionLink("Về trang chủ", "Index", "HopDongVay", null, new {@class = "nav-link active"})
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            @RenderBody()
+        </div>
+    </div>
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/JavaScript.js"></script>
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active").removeClass('active');
+            $(this).addClass('active');
+        })
+
+        $(".open-btn").on('click', function () {
+            $('.sidebar').addClass('active');
+        })
+        $(".btn-close").on('click', function () {
+            $('.sidebar').removeClass('active');
+        })
+    </script>
+</body>
+</html>

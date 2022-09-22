@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbQuanLyHopDongVayModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="HDV_GBNLV">
+          <Key>
+            <PropertyRef Name="GBNLV_SO" />
+          </Key>
+          <Property Name="GBNLV_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="GBNLV_NGAY" Type="date" Nullable="false" />
+          <Property Name="KUGN_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MSLNT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TYGIA" Type="money" Nullable="false" />
+          <Property Name="TIENLAI" Type="money" Nullable="false" />
+          <Property Name="TIENLAIND" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_GBNNG">
+          <Key>
+            <PropertyRef Name="GBNNG_SO" />
+          </Key>
+          <Property Name="GBNNG_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="GBNNG_NGAY" Type="date" Nullable="false" />
+          <Property Name="KUGN_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MSLNT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TYGIA" Type="money" Nullable="false" />
+          <Property Name="TIENGOC" Type="money" Nullable="false" />
+          <Property Name="TIENGOCND" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_GNN">
+          <Key>
+            <PropertyRef Name="GNN_SO" />
+          </Key>
+          <Property Name="GNN_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="GNN_NGAY" Type="date" Nullable="false" />
+          <Property Name="KUGN_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MSLNT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TYGIA" Type="money" Nullable="false" />
+          <Property Name="TIENVAY" Type="money" Nullable="false" />
+          <Property Name="TIENVAYVND" Type="money" Nullable="false" />
+          <Property Name="TIENMAT" Type="money" Nullable="false" />
+          <Property Name="CKHOAN" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_KUGN1">
+          <Key>
+            <PropertyRef Name="KUGN_SO" />
+          </Key>
+          <Property Name="KUGN_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="KUGN_NGAY" Type="date" Nullable="false" />
+          <Property Name="HD_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="MSLNT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TIENVAY" Type="money" Nullable="false" />
+          <Property Name="TIENVAYVND" Type="money" Nullable="false" />
+          <Property Name="TIENMAT" Type="money" Nullable="false" />
+          <Property Name="CKHOAN" Type="money" Nullable="false" />
+          <Property Name="MDSD" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="CTKT" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="SOTHANGVAY" Type="int" Nullable="false" />
+          <Property Name="TLVCN" Type="int" Nullable="false" />
+          <Property Name="TLVCN_TQN" Type="int" Nullable="false" />
+          <Property Name="NTNGOC" Type="date" Nullable="false" />
+          <Property Name="TTNGOC" Type="int" Nullable="false" />
+          <Property Name="TL_LS" Type="money" Nullable="false" />
+          <Property Name="TL_LS_TQN" Type="money" Nullable="false" />
+          <Property Name="TL_LSGH" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_KUGN2">
+          <Key>
+            <PropertyRef Name="KUGN_SO" />
+          </Key>
+          <Property Name="KUGN_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="SONGAYQH" Type="int" Nullable="false" />
+          <Property Name="TL_LSQH" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_VAY1">
+          <Key>
+            <PropertyRef Name="HD_SO" />
+          </Key>
+          <Property Name="HD_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="HD_NGAY" Type="date" Nullable="false" />
+          <Property Name="MSNH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="MSLNT" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="TIENVAY" Type="money" Nullable="false" />
+          <Property Name="TYGIA" Type="money" Nullable="false" />
+          <Property Name="RVTUNGAY" Type="date" Nullable="false" />
+          <Property Name="RVDENNGAY" Type="date" Nullable="false" />
+          <Property Name="SOTHANGVAY" Type="int" Nullable="false" />
+          <Property Name="KYHANTRANO" Type="int" Nullable="false" />
+          <Property Name="HANTDLS" Type="int" Nullable="false" />
+          <Property Name="TL_LS" Type="money" Nullable="false" />
+          <Property Name="TL_LSQH" Type="money" Nullable="false" />
+          <Property Name="LSTHEO" Type="int" Nullable="false" />
+          <Property Name="TTGTHEO" Type="int" Nullable="false" />
+          <Property Name="TC_TSCD" Type="bit" />
+          <Property Name="TC_STK" Type="bit" />
+          <Property Name="TC_KHAC" Type="bit" />
+          <Property Name="TC_HD_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="TC_HD_NGAY" Type="date" Nullable="false" />
+          <Property Name="STK_SO" Type="char" MaxLength="20" />
+          <Property Name="STK_NGAY" Type="date" />
+          <Property Name="STK_TRIGIA" Type="money" />
+          <Property Name="STK_LS" Type="money" />
+          <Property Name="STK_NDH" Type="date" />
+          <Property Name="STK_MSNH" Type="char" MaxLength="10" />
+          <Property Name="STK_NSH" Type="char" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HDV_VAY2">
+          <Key>
+            <PropertyRef Name="HD_SO" />
+          </Key>
+          <Property Name="HD_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="SONGAYQH" Type="int" Nullable="false" />
+          <Property Name="TL_LSQH" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_VAY3">
+          <Key>
+            <PropertyRef Name="HD_SO" />
+          </Key>
+          <Property Name="HD_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="STK_SO" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="STK_NGAY" Type="date" Nullable="false" />
+          <Property Name="STK_TRIGIA" Type="money" Nullable="false" />
+          <Property Name="STK_LS" Type="money" Nullable="false" />
+          <Property Name="STK_NDH" Type="date" Nullable="false" />
+          <Property Name="STK_MSNH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="STK_NSH" Type="char" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityContainer Name="dbQuanLyHopDongVayModelStoreContainer">
+          <EntitySet Name="HDV_GBNLV" EntityType="Self.HDV_GBNLV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_GBNNG" EntityType="Self.HDV_GBNNG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_GNN" EntityType="Self.HDV_GNN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_KUGN1" EntityType="Self.HDV_KUGN1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_KUGN2" EntityType="Self.HDV_KUGN2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_VAY1" EntityType="Self.HDV_VAY1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_VAY2" EntityType="Self.HDV_VAY2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HDV_VAY3" EntityType="Self.HDV_VAY3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbQuanLyHopDongVayModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="HDV_GBNLV">
+          <Key>
+            <PropertyRef Name="GBNLV_SO" />
+          </Key>
+          <Property Name="GBNLV_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="GBNLV_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="KUGN_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MSLNT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TYGIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENLAI" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENLAIND" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_GBNNG">
+          <Key>
+            <PropertyRef Name="GBNNG_SO" />
+          </Key>
+          <Property Name="GBNNG_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="GBNNG_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="KUGN_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MSLNT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TYGIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENGOC" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENGOCND" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_GNN">
+          <Key>
+            <PropertyRef Name="GNN_SO" />
+          </Key>
+          <Property Name="GNN_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="GNN_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="KUGN_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MSLNT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TYGIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENVAY" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENVAYVND" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENMAT" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CKHOAN" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_KUGN1">
+          <Key>
+            <PropertyRef Name="KUGN_SO" />
+          </Key>
+          <Property Name="KUGN_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="KUGN_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="HD_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MSLNT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TIENVAY" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENVAYVND" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TIENMAT" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CKHOAN" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="MDSD" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CTKT" Type="String" MaxLength="100" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SOTHANGVAY" Type="Int32" Nullable="false" />
+          <Property Name="TLVCN" Type="Int32" Nullable="false" />
+          <Property Name="TLVCN_TQN" Type="Int32" Nullable="false" />
+          <Property Name="NTNGOC" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TTNGOC" Type="Int32" Nullable="false" />
+          <Property Name="TL_LS" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TL_LS_TQN" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TL_LSGH" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_KUGN2">
+          <Key>
+            <PropertyRef Name="KUGN_SO" />
+          </Key>
+          <Property Name="KUGN_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SONGAYQH" Type="Int32" Nullable="false" />
+          <Property Name="TL_LSQH" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_VAY1">
+          <Key>
+            <PropertyRef Name="HD_SO" />
+          </Key>
+          <Property Name="HD_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="HD_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MSNH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MSLNT" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TIENVAY" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TYGIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="RVTUNGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RVDENNGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SOTHANGVAY" Type="Int32" Nullable="false" />
+          <Property Name="KYHANTRANO" Type="Int32" Nullable="false" />
+          <Property Name="HANTDLS" Type="Int32" Nullable="false" />
+          <Property Name="TL_LS" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="TL_LSQH" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="LSTHEO" Type="Int32" Nullable="false" />
+          <Property Name="TTGTHEO" Type="Int32" Nullable="false" />
+          <Property Name="TC_TSCD" Type="Boolean" />
+          <Property Name="TC_STK" Type="Boolean" />
+          <Property Name="TC_KHAC" Type="Boolean" />
+          <Property Name="TC_HD_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TC_HD_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="STK_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="STK_NGAY" Type="DateTime" Precision="0" />
+          <Property Name="STK_TRIGIA" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="STK_LS" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="STK_NDH" Type="DateTime" Precision="0" />
+          <Property Name="STK_MSNH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="STK_NSH" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HDV_VAY2">
+          <Key>
+            <PropertyRef Name="HD_SO" />
+          </Key>
+          <Property Name="HD_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SONGAYQH" Type="Int32" Nullable="false" />
+          <Property Name="TL_LSQH" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HDV_VAY3">
+          <Key>
+            <PropertyRef Name="HD_SO" />
+          </Key>
+          <Property Name="HD_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="STK_SO" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="STK_NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="STK_TRIGIA" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="STK_LS" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="STK_NDH" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="STK_MSNH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="STK_NSH" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityContainer Name="dbQuanLyHopDongVayEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="HDV_GBNLV" EntityType="Self.HDV_GBNLV" />
+          <EntitySet Name="HDV_GBNNG" EntityType="Self.HDV_GBNNG" />
+          <EntitySet Name="HDV_GNN" EntityType="Self.HDV_GNN" />
+          <EntitySet Name="HDV_KUGN1" EntityType="Self.HDV_KUGN1" />
+          <EntitySet Name="HDV_KUGN2" EntityType="Self.HDV_KUGN2" />
+          <EntitySet Name="HDV_VAY1" EntityType="Self.HDV_VAY1" />
+          <EntitySet Name="HDV_VAY2" EntityType="Self.HDV_VAY2" />
+          <EntitySet Name="HDV_VAY3" EntityType="Self.HDV_VAY3" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbQuanLyHopDongVayModelStoreContainer" CdmEntityContainer="dbQuanLyHopDongVayEntities">
+          <EntitySetMapping Name="HDV_GBNLV">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_GBNLV">
+              <MappingFragment StoreEntitySet="HDV_GBNLV">
+                <ScalarProperty Name="GBNLV_SO" ColumnName="GBNLV_SO" />
+                <ScalarProperty Name="GBNLV_NGAY" ColumnName="GBNLV_NGAY" />
+                <ScalarProperty Name="KUGN_SO" ColumnName="KUGN_SO" />
+                <ScalarProperty Name="MSLNT" ColumnName="MSLNT" />
+                <ScalarProperty Name="TYGIA" ColumnName="TYGIA" />
+                <ScalarProperty Name="TIENLAI" ColumnName="TIENLAI" />
+                <ScalarProperty Name="TIENLAIND" ColumnName="TIENLAIND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_GBNNG">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_GBNNG">
+              <MappingFragment StoreEntitySet="HDV_GBNNG">
+                <ScalarProperty Name="GBNNG_SO" ColumnName="GBNNG_SO" />
+                <ScalarProperty Name="GBNNG_NGAY" ColumnName="GBNNG_NGAY" />
+                <ScalarProperty Name="KUGN_SO" ColumnName="KUGN_SO" />
+                <ScalarProperty Name="MSLNT" ColumnName="MSLNT" />
+                <ScalarProperty Name="TYGIA" ColumnName="TYGIA" />
+                <ScalarProperty Name="TIENGOC" ColumnName="TIENGOC" />
+                <ScalarProperty Name="TIENGOCND" ColumnName="TIENGOCND" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_GNN">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_GNN">
+              <MappingFragment StoreEntitySet="HDV_GNN">
+                <ScalarProperty Name="GNN_SO" ColumnName="GNN_SO" />
+                <ScalarProperty Name="GNN_NGAY" ColumnName="GNN_NGAY" />
+                <ScalarProperty Name="KUGN_SO" ColumnName="KUGN_SO" />
+                <ScalarProperty Name="MSLNT" ColumnName="MSLNT" />
+                <ScalarProperty Name="TYGIA" ColumnName="TYGIA" />
+                <ScalarProperty Name="TIENVAY" ColumnName="TIENVAY" />
+                <ScalarProperty Name="TIENVAYVND" ColumnName="TIENVAYVND" />
+                <ScalarProperty Name="TIENMAT" ColumnName="TIENMAT" />
+                <ScalarProperty Name="CKHOAN" ColumnName="CKHOAN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_KUGN1">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_KUGN1">
+              <MappingFragment StoreEntitySet="HDV_KUGN1">
+                <ScalarProperty Name="KUGN_SO" ColumnName="KUGN_SO" />
+                <ScalarProperty Name="KUGN_NGAY" ColumnName="KUGN_NGAY" />
+                <ScalarProperty Name="HD_SO" ColumnName="HD_SO" />
+                <ScalarProperty Name="MSLNT" ColumnName="MSLNT" />
+                <ScalarProperty Name="TIENVAY" ColumnName="TIENVAY" />
+                <ScalarProperty Name="TIENVAYVND" ColumnName="TIENVAYVND" />
+                <ScalarProperty Name="TIENMAT" ColumnName="TIENMAT" />
+                <ScalarProperty Name="CKHOAN" ColumnName="CKHOAN" />
+                <ScalarProperty Name="MDSD" ColumnName="MDSD" />
+                <ScalarProperty Name="CTKT" ColumnName="CTKT" />
+                <ScalarProperty Name="SOTHANGVAY" ColumnName="SOTHANGVAY" />
+                <ScalarProperty Name="TLVCN" ColumnName="TLVCN" />
+                <ScalarProperty Name="TLVCN_TQN" ColumnName="TLVCN_TQN" />
+                <ScalarProperty Name="NTNGOC" ColumnName="NTNGOC" />
+                <ScalarProperty Name="TTNGOC" ColumnName="TTNGOC" />
+                <ScalarProperty Name="TL_LS" ColumnName="TL_LS" />
+                <ScalarProperty Name="TL_LS_TQN" ColumnName="TL_LS_TQN" />
+                <ScalarProperty Name="TL_LSGH" ColumnName="TL_LSGH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_KUGN2">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_KUGN2">
+              <MappingFragment StoreEntitySet="HDV_KUGN2">
+                <ScalarProperty Name="KUGN_SO" ColumnName="KUGN_SO" />
+                <ScalarProperty Name="SONGAYQH" ColumnName="SONGAYQH" />
+                <ScalarProperty Name="TL_LSQH" ColumnName="TL_LSQH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_VAY1">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_VAY1">
+              <MappingFragment StoreEntitySet="HDV_VAY1">
+                <ScalarProperty Name="HD_SO" ColumnName="HD_SO" />
+                <ScalarProperty Name="HD_NGAY" ColumnName="HD_NGAY" />
+                <ScalarProperty Name="MSNH" ColumnName="MSNH" />
+                <ScalarProperty Name="MSLNT" ColumnName="MSLNT" />
+                <ScalarProperty Name="TIENVAY" ColumnName="TIENVAY" />
+                <ScalarProperty Name="TYGIA" ColumnName="TYGIA" />
+                <ScalarProperty Name="RVTUNGAY" ColumnName="RVTUNGAY" />
+                <ScalarProperty Name="RVDENNGAY" ColumnName="RVDENNGAY" />
+                <ScalarProperty Name="SOTHANGVAY" ColumnName="SOTHANGVAY" />
+                <ScalarProperty Name="KYHANTRANO" ColumnName="KYHANTRANO" />
+                <ScalarProperty Name="HANTDLS" ColumnName="HANTDLS" />
+                <ScalarProperty Name="TL_LS" ColumnName="TL_LS" />
+                <ScalarProperty Name="TL_LSQH" ColumnName="TL_LSQH" />
+                <ScalarProperty Name="LSTHEO" ColumnName="LSTHEO" />
+                <ScalarProperty Name="TTGTHEO" ColumnName="TTGTHEO" />
+                <ScalarProperty Name="TC_TSCD" ColumnName="TC_TSCD" />
+                <ScalarProperty Name="TC_STK" ColumnName="TC_STK" />
+                <ScalarProperty Name="TC_KHAC" ColumnName="TC_KHAC" />
+                <ScalarProperty Name="TC_HD_SO" ColumnName="TC_HD_SO" />
+                <ScalarProperty Name="TC_HD_NGAY" ColumnName="TC_HD_NGAY" />
+                <ScalarProperty Name="STK_SO" ColumnName="STK_SO" />
+                <ScalarProperty Name="STK_NGAY" ColumnName="STK_NGAY" />
+                <ScalarProperty Name="STK_TRIGIA" ColumnName="STK_TRIGIA" />
+                <ScalarProperty Name="STK_LS" ColumnName="STK_LS" />
+                <ScalarProperty Name="STK_NDH" ColumnName="STK_NDH" />
+                <ScalarProperty Name="STK_MSNH" ColumnName="STK_MSNH" />
+                <ScalarProperty Name="STK_NSH" ColumnName="STK_NSH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_VAY2">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_VAY2">
+              <MappingFragment StoreEntitySet="HDV_VAY2">
+                <ScalarProperty Name="HD_SO" ColumnName="HD_SO" />
+                <ScalarProperty Name="SONGAYQH" ColumnName="SONGAYQH" />
+                <ScalarProperty Name="TL_LSQH" ColumnName="TL_LSQH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HDV_VAY3">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.HDV_VAY3">
+              <MappingFragment StoreEntitySet="HDV_VAY3">
+                <ScalarProperty Name="HD_SO" ColumnName="HD_SO" />
+                <ScalarProperty Name="STK_SO" ColumnName="STK_SO" />
+                <ScalarProperty Name="STK_NGAY" ColumnName="STK_NGAY" />
+                <ScalarProperty Name="STK_TRIGIA" ColumnName="STK_TRIGIA" />
+                <ScalarProperty Name="STK_LS" ColumnName="STK_LS" />
+                <ScalarProperty Name="STK_NDH" ColumnName="STK_NDH" />
+                <ScalarProperty Name="STK_MSNH" ColumnName="STK_MSNH" />
+                <ScalarProperty Name="STK_NSH" ColumnName="STK_NSH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="dbQuanLyHopDongVayModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

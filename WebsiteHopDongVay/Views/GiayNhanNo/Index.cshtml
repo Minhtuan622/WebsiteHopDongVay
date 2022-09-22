@@ -1,0 +1,138 @@
+﻿@using WebsiteHopDongVay.Models;
+@model WebsiteHopDongVay.Models.HDV_GNN
+@{
+    ViewBag.Title = "Giấy nhận nợ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<HDV_GNN> list_giayno = ViewData["ds_gnn"] as List<HDV_GNN>;
+}
+
+<!-----------------------------------Thêm giấy nhận nợ--------------------------------->
+<div class="border">
+    <h3 class="mx-3 mt-3">Giấy nhận nợ</h3>
+    <div class="add-new-form m-4">
+        <!-- Button trigger modal -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop3"
+             data-bs-backdrop="static"
+             data-bs-keyboard="false"
+             tabindex="-1"
+             aria-labelledby="staticBackdropLabel3"
+             aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                @using (Html.BeginForm("Index", "GiayNhanNo", FormMethod.Post))
+                {
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel3">Thêm Giấy nhận nợ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="dashboard-content px-3 pt-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Giấy nhận nợ số</span>
+                                    @Html.TextBoxFor(m => m.GNN_SO, new { @class = "form-control" })
+                                    <span class="input-group-text">Ngày</span>
+                                    @Html.TextBoxFor(m => m.GNN_NGAY, new { @class = "form-control", @type ="date" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Theo Khế ước số</span>
+                                    @Html.TextBoxFor(m => m.KUGN_SO, new { @class = "form-control" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Loại ngoại tệ</span>
+                                    @Html.TextBoxFor(m => m.MSLNT, new { @class = "form-control" })
+                                    <span class="input-group-text">Tỷ giá</span>
+                                    @Html.TextBoxFor(m => m.TYGIA, new { @class = "form-control", @type ="number"})
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Tiền vay</span>
+                                    @Html.TextBoxFor(m => m.TIENVAY, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">Tiền vay (VND)</span>
+                                    @Html.TextBoxFor(m => m.TIENVAYVND, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Tiền mặt</span>
+                                    @Html.TextBoxFor(m => m.TIENMAT, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">Chuyển khoản</span>
+                                    @Html.TextBoxFor(m => m.CKHOAN, new { @class = "form-control", @type = "number" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+
+                            @*<div class="toast-container position-fixed bottom-0 end-0 p-3">
+                        <div id="liveToast3" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header">
+                                <strong class="me-auto">Giấy nhận nợ</strong>
+                                <small>Hiện tại</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Thêm thành công
+                            </div>
+                        </div>
+                    </div>*@
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(x => x.GNN_SO)
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (HDV_GNN i in list_giayno)
+        {
+            <div class="card col-10 col-md-5 col-xl-3 col-xxl-2 m-3">
+                <div class="card-body">
+                    <h5 class="card-title">Giấy nhận nợ</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Giấy nhận nợ số: @i.GNN_SO</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Ngày: @i.GNN_NGAY</h6>
+                    @foreach (HDV_GNN j in list_giayno)
+                    {
+                        <div class="d-flex justify-content-between">
+                            @using (Html.BeginForm("View", "GiayNhanNo", FormMethod.Post))
+                            {
+                                <input type="hidden" name="giaybao_xem" value="@j.GNN_SO" />
+                                <button class="btn text-info fw-bold card-link text-decoration-none">Xem</button>
+                            }
+                            @using (Html.BeginForm("Edit", "GiayNhanNo", FormMethod.Post))
+                            {
+                                <input type="hidden" name="giaybao_sua" value="@j.GNN_SO" />
+                                <button type="button" class="btn text-warning fw-bold card-link text-decoration-none"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop3">
+                                    Sửa
+                                </button>
+                            }
+                            @using (Html.BeginForm("Delete", "GiayNhanNo", FormMethod.Post))
+                            {
+                                <input type="hidden" name="giaybao_xoa" value="@j.GNN_SO" />
+                                <button class="btn text-danger fw-bold card-link text-decoration-none" id="liveToastBtn3">Xóa</button>
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast3" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <strong class="me-auto">Giấy báo nhận lãi vay</strong>
+                                            <small>Hiện tại</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Xóa thành công
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

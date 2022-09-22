@@ -1,0 +1,226 @@
+﻿@using WebsiteHopDongVay.Models;
+@model WebsiteHopDongVay.Models.HDV_VAY1
+@{
+    ViewBag.Title = "Hợp đồng vay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<HDV_VAY1> list_vay1 = ViewData["ds_hdv"] as List<HDV_VAY1>;
+}
+
+<!-----------------------------------Thêm hợp đồng vay--------------------------------->
+<div class="border">
+    <h3 class="mx-3 mt-3">Hợp đồng vay</h3>
+    <div class="add-new-form m-4">
+        <!-- Button trigger modal -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade"
+             id="staticBackdrop"
+             data-bs-backdrop="static"
+             data-bs-keyboard="false"
+             tabindex="-1"
+             aria-labelledby="staticBackdropLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                @using (Html.BeginForm("Index", "HopDongVay", FormMethod.Post))
+                {
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Thêm Hợp đồng vay</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="dashboard-content px-3 pt-4">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Hợp đồng số</span>
+                                    @Html.TextBoxFor(m => m.HD_SO, new { @class = "form-control" })
+                                    <span class="input-group-text">Ngày</span>
+                                    @Html.TextBoxFor(m => m.HD_NGAY, new { @class = "form-control", @type = "date" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Ngân hàng</span>
+                                    @Html.TextBoxFor(m => m.MSNH, new { @class = "form-control" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Loại ngoại tệ</span>
+                                    @Html.TextBoxFor(m => m.MSNH, new { @class = "form-control" })
+                                    <span class="input-group-text">Số tiền</span>
+                                    @Html.TextBoxFor(m => m.TIENVAY, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">Tỷ giá thời điểm</span>
+                                    @Html.TextBoxFor(m => m.TYGIA, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Rút vốn từ ngày</span>
+                                    @Html.TextBoxFor(m => m.RVTUNGAY, new { @class = "form-control", @type = "date" })
+                                    <span class="input-group-text">Rút vốn đến ngày</span>
+                                    @Html.TextBoxFor(m => m.RVDENNGAY, new { @class = "form-control", @type = "date" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Thời hạn cho vay (tháng)</span>
+                                    @Html.TextBoxFor(m => m.SOTHANGVAY, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">Kỳ hạn trả nợ (tháng)</span>
+                                    @Html.TextBoxFor(m => m.KYHANTRANO, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">Thời hạn thay đổi lãi suất (tháng)</span>
+                                    @Html.TextBoxFor(m => m.HANTDLS, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Lãi suất vay (tháng)</span>
+                                    @Html.TextBoxFor(m => m.TL_LS, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">% Lãi suất quá hạn</span>
+                                    @Html.TextBoxFor(m => m.TL_LSQH, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Trả lãi theo (tháng)</span>
+                                    @Html.TextBoxFor(m => m.LSTHEO, new { @class = "form-control", @type = "number" })
+                                    <span class="input-group-text">Trả tiền gốc theo (tháng)</span>
+                                    @Html.TextBoxFor(m => m.TTGTHEO, new { @class = "form-control", @type = "number" })
+                                </div>
+                                <h5>Tài sản thế chấp</h5>
+                                <div class="accordion mb-3" id="accordionFlushExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingOne">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                                Tài sản cố định
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">Tài sản cố định</span>
+                                                    @Html.TextBoxFor(m => m.TC_TSCD, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingTwo">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                                Sổ tiết kiệm
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">Sổ tiết kiệm số</span>
+                                                    @Html.TextBoxFor(m => m.STK_SO, new { @class = "form-control" })
+                                                    <span class="input-group-text">Ngày</span>
+                                                    @Html.TextBoxFor(m => m.STK_NGAY, new { @class = "form-control", @type = "date" })
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">Trị giá</span>
+                                                    @Html.TextBoxFor(m => m.STK_TRIGIA, new { @class = "form-control", @type = "number" })
+                                                    <span class="input-group-text">Lãi suất</span>
+                                                    @Html.TextBoxFor(m => m.STK_LS, new { @class = "form-control", @type = "number" })
+                                                    <span class="input-group-text">Ngày đáo hạn</span>
+                                                    @Html.TextBoxFor(m => m.STK_NDH, new { @class = "form-control", @type = "date" })
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">Ngân hàng</span>
+                                                    @Html.TextBoxFor(m => m.STK_MSNH, new { @class = "form-control" })
+                                                    <span class="input-group-text">Người sỡ hữu</span>
+                                                    @Html.TextBoxFor(m => m.STK_NSH, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="flush-headingThree">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                                Khác
+                                            </button>
+                                        </h2>
+                                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="input-group mb-3">
+                                                    <span class="input-group-text">Khác</span>
+                                                    @Html.TextBoxFor(m => m.TC_KHAC, new { @class = "form-control" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Hợp đồng thế chấp số</span>
+                                    @Html.TextBoxFor(m => m.TC_HD_SO, new { @class = "form-control" })
+                                    <span class="input-group-text">Ngày</span>
+                                    @Html.TextBoxFor(m => m.TC_HD_NGAY, new { @class = "form-control", @type = "date" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Thêm</button>
+
+                            @*<div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <strong class="me-auto">Hợp đồng vay</strong>
+                                        <small>Hiện tại</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        Thêm thành công
+                                    </div>
+                                </div>
+                            </div>*@
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                        </div>
+                    </div>
+                    @Html.HiddenFor(x => x.HD_SO)
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach (HDV_VAY1 i in list_vay1)
+        {
+            <div class="card col-10 col-md-5 col-xl-3 col-xxl-2 m-3">
+                <div class="card-body">
+                    <h5 class="card-title">Giấy nhận nợ</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Giấy nhận nợ số: @i.HD_SO</h6>
+                    <h6 class="card-subtitle mb-2 text-muted">Ngày: @i.HD_SO</h6>
+                    @foreach (HDV_VAY1 j in list_vay1)
+                    {
+                        <div class="d-flex justify-content-between">
+                            @using (Html.BeginForm("View", "HopDongVay", FormMethod.Post))
+                            {
+                                <input type="hidden" name="giaybao_xem" value="@j.HD_SO" />
+                                <button class="btn text-info fw-bold card-link text-decoration-none">Xem</button>
+                            }
+                            @using (Html.BeginForm("Edit", "HopDongVay", FormMethod.Post))
+                            {
+                                <input type="hidden" name="giaybao_sua" value="@j.HD_SO" />
+                                <button type="button" class="btn text-warning fw-bold card-link text-decoration-none"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#staticBackdrop">
+                                    Sửa
+                                </button>
+                            }
+                            @using (Html.BeginForm("Delete", "HopDongVay", FormMethod.Post))
+                            {
+                                <input type="hidden" name="giaybao_xoa" value="@j.HD_SO" />
+                                <button class="btn text-danger fw-bold card-link text-decoration-none" id="liveToastBtn">Xóa</button>
+                                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                        <div class="toast-header">
+                                            <strong class="me-auto">Giấy báo nhận lãi vay</strong>
+                                            <small>Hiện tại</small>
+                                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                        </div>
+                                        <div class="toast-body">
+                                            Xóa thành công
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+</div>

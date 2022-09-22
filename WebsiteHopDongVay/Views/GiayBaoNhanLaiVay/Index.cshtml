@@ -1,0 +1,132 @@
+﻿@using WebsiteHopDongVay.Models;
+@model WebsiteHopDongVay.Models.HDV_GBNLV
+@{
+    ViewBag.Title = "Giấy báo nhận lãi vay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+    List<HDV_GBNLV> list2 = ViewData["ds_gbnlv"] as List<HDV_GBNLV>;
+}
+
+<!-----------------------------------Thêm giấy báo nhận lãi vay--------------------------------->
+<div class="border">
+    <h3 class="mx-3 mt-3">Giấy báo nhận lãi vay</h3>
+    <div class="add-new-form m-4">
+
+        <!-- Button trigger modal -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop4"
+             data-bs-backdrop="static"
+             data-bs-keyboard="false"
+             tabindex="-1"
+             aria-labelledby="staticBackdropLabel4"
+             aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                @using(Html.BeginForm("Index", "GiayBaoNhanLaiVay", FormMethod.Post))
+            {
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel4">Thêm Giấy báo nhận lãi vay</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="dashboard-content px-3 pt-4">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Giấy báo nhận lãi vay số</span>
+                                @Html.TextBoxFor(m => m.GBNLV_SO, new { @class = "form-control" })
+                                <span class="input-group-text">Ngày</span>
+                                @Html.TextBoxFor(m => m.GBNLV_NGAY, new { @class = "form-control", @type = "date"})
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Khế ước ghi nợ số</span>
+                                @Html.TextBoxFor(m => m.KUGN_SO, new { @class = "form-control" })
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Loại ngoại tệ</span>
+                                @Html.TextBoxFor(m => m.MSLNT, new { @class = "form-control" })
+                                <span class="input-group-text">Tỷ giá</span>
+                                @Html.TextBoxFor(m => m.TYGIA, new { @class = "form-control" })
+                            </div>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Tiền lãi vay</span>
+                                @Html.TextBoxFor(m => m.TIENLAI, new { @class = "form-control" })
+                                <span class="input-group-text">Tiền lãi vay (VND)</span>
+                                @Html.TextBoxFor(m => m.TIENLAIND, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+
+                        @*<div class="toast-container position-fixed bottom-0 end-0 p-3">
+                            <div id="liveToast4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                <div class="toast-header">
+                                    <strong class="me-auto">Giấy báo nhận lãi vay</strong>
+                                    <small>Hiện tại</small>
+                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                </div>
+                                <div class="toast-body">
+                                    Lưu thành công
+                                </div>
+                            </div>
+                        </div>*@
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+                @Html.HiddenFor(X => X.GBNLV_SO)
+            }
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @foreach(HDV_GBNLV i in list2)
+            {
+        <div class="card col-10 col-md-5 col-xl-3 col-xxl-2 m-3">
+            <div class="card-body">
+                <h5 class="card-title">Giấy báo nhận lãi vay</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Giấy báo số: @i.GBNLV_SO</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Ngày: @i.GBNLV_NGAY</h6>
+                    <div class="d-flex justify-content-between">
+                        @*@using (Html.BeginForm("View", "GiayBaoNhanLaiVay", FormMethod.Post))
+                        {
+                            <input type="hidden" name="giaybao_xem" value="@i.GBNLV_SO" />
+                            <button class="btn text-info fw-bold card-link text-decoration-none">xem</button>
+                        }*@
+                        @using (Html.BeginForm("Edit", "GiayBaoNhanLaiVay", FormMethod.Post))
+                        {
+                            <input type="hidden" name="giaybao_sua" value="@i.GBNLV_SO" />
+                            <button type="button" class="btn text-warning fw-bold card-link text-decoration-none"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop4">
+                                Sửa
+                            </button>
+                        }
+                        @using (Html.BeginForm("Delete", "GiayBaoNhanLaiVay", FormMethod.Post))
+                        {
+                            <input type="hidden" name="giaybao_xoa" value="@i.GBNLV_SO" />
+                            <button class="btn text-danger fw-bold card-link text-decoration-none" id="liveToastBtn4">Xóa</button>
+                            <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                                <div id="liveToast4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-header">
+                                        <strong class="me-auto">Giấy báo nhận lãi vay</strong>
+                                        <small>Hiện tại</small>
+                                        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                    </div>
+                                    <div class="toast-body">
+                                        Xóa thành công
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+            </div>
+        </div>
+            }
+    </div>
+</div>
